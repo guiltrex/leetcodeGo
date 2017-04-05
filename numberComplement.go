@@ -1,5 +1,6 @@
 package Leetcode
 
+//Also able to handle negative input
 func findComplement(num int) int {
 	unum := uint32(num)
 	var xorInt uint32 = 1
