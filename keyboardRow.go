@@ -4,12 +4,12 @@ import "strings"
 
 //verbose solution, requiring further refactor in the future.
 func findWords(words []string) []string {
-	invMap := map[int][]string{
-		1: []string{"z", "x", "c", "v", "b", "n", "m"},
-		2: []string{"a", "s", "d", "f", "g", "h", "j", "k", "l"},
-		3: []string{"q", "w", "e", "r", "t", "y", "u", "i", "o", "p"},
+	posMatrix := [][]string{
+		[]string{"z", "x", "c", "v", "b", "n", "m"},
+		[]string{"a", "s", "d", "f", "g", "h", "j", "k", "l"},
+		[]string{"q", "w", "e", "r", "t", "y", "u", "i", "o", "p"},
 	}
-	strLineMap := reverseMap(invMap)
+	strLineMap := buildMap(posMatrix)
 	res := []string{}
 
 	for _, word := range words {
@@ -30,9 +30,9 @@ func findWords(words []string) []string {
 
 }
 
-func reverseMap(posChMap map[int][]string) map[string]int {
+func buildMap(posMatrix [][]string) map[string]int {
 	res := make(map[string]int)
-	for pos, strs := range posChMap {
+	for pos, strs := range posMatrix {
 		for _, str := range strs {
 			res[str] = pos
 		}
